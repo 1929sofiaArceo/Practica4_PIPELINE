@@ -1,0 +1,1298 @@
+Analysis & Synthesis report for RISC_V_Single_Cycle
+Tue May  3 17:05:55 2022
+Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |RISC_V_Single_Cycle
+ 14. Parameter Settings for User Entity Instance: PC_Register:PROGRAM_COUNTER
+ 15. Parameter Settings for User Entity Instance: Program_Memory:PROGRAM_MEMORY
+ 16. Parameter Settings for User Entity Instance: Adder_32_Bits:PC_PLUS_4
+ 17. Parameter Settings for User Entity Instance: IF_ID:Fetch_Decode
+ 18. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT
+ 19. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_zero
+ 20. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_ra
+ 21. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_sp
+ 22. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_gp
+ 23. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_tp
+ 24. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_t0
+ 25. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_t1
+ 26. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_t2
+ 27. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s0_fp
+ 28. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s1
+ 29. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_a0
+ 30. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_a1
+ 31. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_a2
+ 32. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_a3
+ 33. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_a4
+ 34. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_a5
+ 35. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_a6
+ 36. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_a7
+ 37. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s2
+ 38. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s3
+ 39. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s4
+ 40. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s5
+ 41. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s6
+ 42. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s7
+ 43. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s8
+ 44. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s9
+ 45. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s10
+ 46. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s11
+ 47. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_t3
+ 48. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_t4
+ 49. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_t5
+ 50. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_t6
+ 51. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|MUXRegisterFile:MUXRegister1
+ 52. Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|MUXRegisterFile:MUXRegister2
+ 53. Parameter Settings for User Entity Instance: ID_EX:Decode_Excecute
+ 54. Parameter Settings for User Entity Instance: Multiplexer_2_to_1:MUX_DATA_OR_IMM_FOR_ALU
+ 55. Parameter Settings for User Entity Instance: EX_MEM:Excecute_Memory
+ 56. Parameter Settings for User Entity Instance: Data_Memory:DATA_MEMORY_UNIT
+ 57. Parameter Settings for User Entity Instance: Multiplexer_2_to_1:MUL_UNIT
+ 58. Parameter Settings for User Entity Instance: Multiplexer_2_to_1:BRANCH_MUL_UNIT
+ 59. Parameter Settings for User Entity Instance: Multiplexer_2_to_1:JAL_MUX
+ 60. Parameter Settings for User Entity Instance: Conditional_Adder:PC_JAL_ADDER
+ 61. Parameter Settings for User Entity Instance: Conditional_Adder:PC_JALR_ADDER
+ 62. Parameter Settings for User Entity Instance: Conditional_Adder:PC_JALR_PLUS_4
+ 63. Parameter Settings for User Entity Instance: Multiplexer_2_to_1:JAL_JALR_MUX
+ 64. Port Connectivity Checks: "Conditional_Adder:PC_JALR_PLUS_4"
+ 65. Port Connectivity Checks: "Multiplexer_2_to_1:JAL_MUX"
+ 66. Port Connectivity Checks: "EX_MEM:Excecute_Memory"
+ 67. Port Connectivity Checks: "ID_EX:Decode_Excecute"
+ 68. Port Connectivity Checks: "Register_File:REGISTER_FILE_UNIT|Register:Register_zero"
+ 69. Port Connectivity Checks: "IF_ID:Fetch_Decode"
+ 70. Port Connectivity Checks: "Adder_32_Bits:PC_PLUS_4"
+ 71. Post-Synthesis Netlist Statistics for Top Partition
+ 72. Elapsed Time Per Partition
+ 73. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2021  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue May  3 17:05:55 2022       ;
+; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
+; Revision Name                      ; RISC_V_Single_Cycle                         ;
+; Top-level Entity Name              ; RISC_V_Single_Cycle                         ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 68                                          ;
+;     Total combinational functions  ; 68                                          ;
+;     Dedicated logic registers      ; 34                                          ;
+; Total registers                    ; 34                                          ;
+; Total pins                         ; 34                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                ;
++------------------------------------------------------------------+---------------------+---------------------+
+; Option                                                           ; Setting             ; Default Value       ;
++------------------------------------------------------------------+---------------------+---------------------+
+; Device                                                           ; 10M50DAF484C7G      ;                     ;
+; Top-level entity name                                            ; RISC_V_Single_Cycle ; RISC_V_Single_Cycle ;
+; Family name                                                      ; MAX 10              ; Cyclone V           ;
+; Use smart compilation                                            ; Off                 ; Off                 ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                  ; On                  ;
+; Enable compact report table                                      ; Off                 ; Off                 ;
+; Restructure Multiplexers                                         ; Auto                ; Auto                ;
+; Create Debugging Nodes for IP Cores                              ; Off                 ; Off                 ;
+; Preserve fewer node names                                        ; On                  ; On                  ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable              ; Enable              ;
+; Verilog Version                                                  ; Verilog_2001        ; Verilog_2001        ;
+; VHDL Version                                                     ; VHDL_1993           ; VHDL_1993           ;
+; State Machine Processing                                         ; Auto                ; Auto                ;
+; Safe State Machine                                               ; Off                 ; Off                 ;
+; Extract Verilog State Machines                                   ; On                  ; On                  ;
+; Extract VHDL State Machines                                      ; On                  ; On                  ;
+; Ignore Verilog initial constructs                                ; Off                 ; Off                 ;
+; Iteration limit for constant Verilog loops                       ; 5000                ; 5000                ;
+; Iteration limit for non-constant Verilog loops                   ; 250                 ; 250                 ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                  ; On                  ;
+; Infer RAMs from Raw Logic                                        ; On                  ; On                  ;
+; Parallel Synthesis                                               ; On                  ; On                  ;
+; DSP Block Balancing                                              ; Auto                ; Auto                ;
+; NOT Gate Push-Back                                               ; On                  ; On                  ;
+; Power-Up Don't Care                                              ; On                  ; On                  ;
+; Remove Redundant Logic Cells                                     ; Off                 ; Off                 ;
+; Remove Duplicate Registers                                       ; On                  ; On                  ;
+; Ignore CARRY Buffers                                             ; Off                 ; Off                 ;
+; Ignore CASCADE Buffers                                           ; Off                 ; Off                 ;
+; Ignore GLOBAL Buffers                                            ; Off                 ; Off                 ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                 ; Off                 ;
+; Ignore LCELL Buffers                                             ; Off                 ; Off                 ;
+; Ignore SOFT Buffers                                              ; On                  ; On                  ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                 ; Off                 ;
+; Optimization Technique                                           ; Balanced            ; Balanced            ;
+; Carry Chain Length                                               ; 70                  ; 70                  ;
+; Auto Carry Chains                                                ; On                  ; On                  ;
+; Auto Open-Drain Pins                                             ; On                  ; On                  ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                 ; Off                 ;
+; Auto ROM Replacement                                             ; On                  ; On                  ;
+; Auto RAM Replacement                                             ; On                  ; On                  ;
+; Auto DSP Block Replacement                                       ; On                  ; On                  ;
+; Auto Shift Register Replacement                                  ; Auto                ; Auto                ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto                ; Auto                ;
+; Auto Clock Enable Replacement                                    ; On                  ; On                  ;
+; Strict RAM Replacement                                           ; Off                 ; Off                 ;
+; Allow Synchronous Control Signals                                ; On                  ; On                  ;
+; Force Use of Synchronous Clear Signals                           ; Off                 ; Off                 ;
+; Auto RAM Block Balancing                                         ; On                  ; On                  ;
+; Auto RAM to Logic Cell Conversion                                ; Off                 ; Off                 ;
+; Auto Resource Sharing                                            ; Off                 ; Off                 ;
+; Allow Any RAM Size For Recognition                               ; Off                 ; Off                 ;
+; Allow Any ROM Size For Recognition                               ; Off                 ; Off                 ;
+; Allow Any Shift Register Size For Recognition                    ; Off                 ; Off                 ;
+; Use LogicLock Constraints during Resource Balancing              ; On                  ; On                  ;
+; Ignore translate_off and synthesis_off directives                ; Off                 ; Off                 ;
+; Timing-Driven Synthesis                                          ; On                  ; On                  ;
+; Report Parameter Settings                                        ; On                  ; On                  ;
+; Report Source Assignments                                        ; On                  ; On                  ;
+; Report Connectivity Checks                                       ; On                  ; On                  ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                 ; Off                 ;
+; Synchronization Register Chain Length                            ; 2                   ; 2                   ;
+; Power Optimization During Synthesis                              ; Normal compilation  ; Normal compilation  ;
+; HDL message level                                                ; Level2              ; Level2              ;
+; Suppress Register Optimization Related Messages                  ; Off                 ; Off                 ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000                ; 5000                ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000                ; 5000                ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                 ; 100                 ;
+; Clock MUX Protection                                             ; On                  ; On                  ;
+; Auto Gated Clock Conversion                                      ; Off                 ; Off                 ;
+; Block Design Naming                                              ; Auto                ; Auto                ;
+; SDC constraint protection                                        ; Off                 ; Off                 ;
+; Synthesis Effort                                                 ; Auto                ; Auto                ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                  ; On                  ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                 ; Off                 ;
+; Analysis & Synthesis Message Level                               ; Medium              ; Medium              ;
+; Disable Register Merging Across Hierarchies                      ; Auto                ; Auto                ;
+; Resource Aware Inference For Block RAM                           ; On                  ; On                  ;
++------------------------------------------------------------------+---------------------+---------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                   ;
++--------------------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path           ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                     ; Library ;
++--------------------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------+---------+
+; ../src/RISC_V_Single_Cycle.v               ; yes             ; User Verilog HDL File        ; C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v   ;         ;
+; ../src/Register_File.v                     ; yes             ; User Verilog HDL File        ; C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Register_File.v         ;         ;
+; ../src/Register.v                          ; yes             ; User Verilog HDL File        ; C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Register.v              ;         ;
+; ../src/Program_Memory.v                    ; yes             ; User Verilog HDL File        ; C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Program_Memory.v        ;         ;
+; ../src/PC_Register.v                       ; yes             ; User Verilog HDL File        ; C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/PC_Register.v           ;         ;
+; ../src/MUX_Register_File.v                 ; yes             ; User Verilog HDL File        ; C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/MUX_Register_File.v     ;         ;
+; ../src/Multiplexer_2_to_1.v                ; yes             ; User Verilog HDL File        ; C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Multiplexer_2_to_1.v    ;         ;
+; ../src/Immediate_Unit.v                    ; yes             ; User Verilog HDL File        ; C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Immediate_Unit.v        ;         ;
+; ../src/Decoder_Register_File.v             ; yes             ; User Verilog HDL File        ; C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Decoder_Register_File.v ;         ;
+; ../src/Data_Memory.v                       ; yes             ; User Verilog HDL File        ; C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Data_Memory.v           ;         ;
+; ../src/Control.v                           ; yes             ; User Verilog HDL File        ; C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Control.v               ;         ;
+; ../src/ALU_Control.v                       ; yes             ; User Verilog HDL File        ; C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ALU_Control.v           ;         ;
+; ../src/ALU.v                               ; yes             ; User Verilog HDL File        ; C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ALU.v                   ;         ;
+; ../src/Adder_32_Bits.v                     ; yes             ; User Verilog HDL File        ; C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Adder_32_Bits.v         ;         ;
+; ../src/Conditional_Adder.v                 ; yes             ; User Verilog HDL File        ; C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Conditional_Adder.v     ;         ;
+; ../src/EX_MEM.v                            ; yes             ; User Verilog HDL File        ; C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/EX_MEM.v                ;         ;
+; ../src/ID_EX.v                             ; yes             ; User Verilog HDL File        ; C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ID_EX.v                 ;         ;
+; ../src/IF_ID.v                             ; yes             ; User Verilog HDL File        ; C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/IF_ID.v                 ;         ;
+; /projects/risc_v_single_cycle/src/text.dat ; yes             ; Auto-Found Unspecified File  ; /projects/risc_v_single_cycle/src/text.dat                                                       ;         ;
++--------------------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 68        ;
+;                                             ;           ;
+; Total combinational functions               ; 68        ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 28        ;
+;     -- 3 input functions                    ; 22        ;
+;     -- <=2 input functions                  ; 18        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 50        ;
+;     -- arithmetic mode                      ; 18        ;
+;                                             ;           ;
+; Total registers                             ; 34        ;
+;     -- Dedicated logic registers            ; 34        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 34        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 34        ;
+; Total fan-out                               ; 351       ;
+; Average fan-out                             ; 2.06      ;
++---------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                               ;
++------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                ; Entity Name         ; Library Name ;
++------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------+---------------------+--------------+
+; |RISC_V_Single_Cycle               ; 68 (12)             ; 34 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 34   ; 0            ; 0          ; |RISC_V_Single_Cycle                               ; RISC_V_Single_Cycle ; work         ;
+;    |ALU:ALU_UNIT|                  ; 12 (12)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RISC_V_Single_Cycle|ALU:ALU_UNIT                  ; ALU                 ; work         ;
+;    |Control:CONTROL_UNIT|          ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RISC_V_Single_Cycle|Control:CONTROL_UNIT          ; Control             ; work         ;
+;    |EX_MEM:Excecute_Memory|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RISC_V_Single_Cycle|EX_MEM:Excecute_Memory        ; EX_MEM              ; work         ;
+;    |ID_EX:Decode_Excecute|         ; 1 (1)               ; 10 (10)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RISC_V_Single_Cycle|ID_EX:Decode_Excecute         ; ID_EX               ; work         ;
+;    |IF_ID:Fetch_Decode|            ; 0 (0)               ; 12 (12)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RISC_V_Single_Cycle|IF_ID:Fetch_Decode            ; IF_ID               ; work         ;
+;    |Immediate_Unit:IMM_UNIT|       ; 8 (8)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RISC_V_Single_Cycle|Immediate_Unit:IMM_UNIT       ; Immediate_Unit      ; work         ;
+;    |PC_Register:PROGRAM_COUNTER|   ; 9 (9)               ; 11 (11)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RISC_V_Single_Cycle|PC_Register:PROGRAM_COUNTER   ; PC_Register         ; work         ;
+;    |Program_Memory:PROGRAM_MEMORY| ; 24 (24)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RISC_V_Single_Cycle|Program_Memory:PROGRAM_MEMORY ; Program_Memory      ; work         ;
++------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; ALU:ALU_UNIT|Zero_o                                ; ALU:ALU_UNIT|Mux0   ; yes                    ;
+; Number of user-specified and inferred latches = 1  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                               ;
++----------------------------------------------------------------------------+-----------------------------------------------------+
+; Register name                                                              ; Reason for Removal                                  ;
++----------------------------------------------------------------------------+-----------------------------------------------------+
+; IF_ID:Fetch_Decode|Write_Register_o[0..4]                                  ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t5|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t4|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t3|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_s11|DataOutput[0..31]   ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_s10|DataOutput[0..31]   ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_s9|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_s8|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_s7|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_s6|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_s5|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_s4|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_s3|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_s2|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_a7|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_a6|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_a5|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_a4|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_a3|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_a2|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_a1|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_a0|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_s1|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_s0_fp|DataOutput[0..31] ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t2|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t1|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t0|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_tp|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_gp|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_sp|DataOutput[0..31]    ; Stuck at GND due to stuck port clock_enable         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[0]        ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[0]                                     ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[31]       ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[31]                                    ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[30]       ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[30]                                    ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[29]       ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[29]                                    ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[28]       ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[28]                                    ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[27]       ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[27]                                    ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[26]       ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[26]                                    ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[25]       ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[25]                                    ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[24]       ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[24]                                    ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[23]       ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[23]                                    ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[22]       ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[22]                                    ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[21]       ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[21]                                    ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[20]       ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[20]                                    ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[19]       ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[19]                                    ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[18]       ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[18]                                    ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[17]       ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[17]                                    ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[16]       ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[16]                                    ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[15]       ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[15]                                    ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[14]       ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[14]                                    ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[13]       ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[13]                                    ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[12]       ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[12]                                    ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[11]       ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[11]                                    ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[10]       ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[10]                                    ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_ra|DataOutput[1..9]     ; Stuck at GND due to stuck port clock_enable         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[1]                                     ; Lost fanout                                         ;
+; ID_EX:Decode_Excecute|Mem_Read_o                                           ; Lost fanout                                         ;
+; ID_EX:Decode_Excecute|Mem_Write_o                                          ; Lost fanout                                         ;
+; EX_MEM:Excecute_Memory|ALU_Result_o[2..9]                                  ; Lost fanout                                         ;
+; ID_EX:Decode_Excecute|Mem_to_Reg_o                                         ; Lost fanout                                         ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_zero|DataOutput[0..31]  ; Stuck at GND due to stuck port clock_enable         ;
+; IF_ID:Fetch_Decode|Read_Data_o[20]                                         ; Merged with IF_ID:Fetch_Decode|Read_Register_2_o[0] ;
+; IF_ID:Fetch_Decode|Read_Data_o[21]                                         ; Merged with IF_ID:Fetch_Decode|Read_Register_2_o[1] ;
+; IF_ID:Fetch_Decode|Read_Data_o[22]                                         ; Merged with IF_ID:Fetch_Decode|Read_Register_2_o[2] ;
+; IF_ID:Fetch_Decode|Read_Data_o[23]                                         ; Merged with IF_ID:Fetch_Decode|Read_Register_2_o[3] ;
+; IF_ID:Fetch_Decode|Read_Data_o[24]                                         ; Merged with IF_ID:Fetch_Decode|Read_Register_2_o[4] ;
+; IF_ID:Fetch_Decode|Read_Data_o[15]                                         ; Merged with IF_ID:Fetch_Decode|Read_Register_1_o[0] ;
+; IF_ID:Fetch_Decode|Read_Data_o[16]                                         ; Merged with IF_ID:Fetch_Decode|Read_Register_1_o[1] ;
+; IF_ID:Fetch_Decode|Read_Data_o[17]                                         ; Merged with IF_ID:Fetch_Decode|Read_Register_1_o[2] ;
+; IF_ID:Fetch_Decode|Read_Data_o[18]                                         ; Merged with IF_ID:Fetch_Decode|Read_Register_1_o[3] ;
+; IF_ID:Fetch_Decode|Read_Data_o[19]                                         ; Merged with IF_ID:Fetch_Decode|Read_Register_1_o[4] ;
+; ID_EX:Decode_Excecute|Read_Data_1_o[1..31]                                 ; Merged with ID_EX:Decode_Excecute|Read_Data_1_o[0]  ;
+; ID_EX:Decode_Excecute|Read_Data_2_o[1..31]                                 ; Merged with ID_EX:Decode_Excecute|Read_Data_2_o[0]  ;
+; ID_EX:Decode_Excecute|Immediate_o[22..31]                                  ; Merged with ID_EX:Decode_Excecute|Immediate_o[21]   ;
+; ID_EX:Decode_Excecute|Read_Data_2_o[0]                                     ; Stuck at GND due to stuck port data_in              ;
+; ID_EX:Decode_Excecute|Read_Data_1_o[0]                                     ; Stuck at GND due to stuck port data_in              ;
+; IF_ID:Fetch_Decode|Read_Data_o[12..14,30]                                  ; Stuck at GND due to stuck port data_in              ;
+; IF_ID:Fetch_Decode|OP_o[2,3]                                               ; Stuck at GND due to stuck port data_in              ;
+; IF_ID:Fetch_Decode|Read_Register_2_o[3]                                    ; Stuck at GND due to stuck port data_in              ;
+; IF_ID:Fetch_Decode|Read_Register_1_o[3]                                    ; Stuck at GND due to stuck port data_in              ;
+; IF_ID:Fetch_Decode|Read_Data_o[27]                                         ; Stuck at GND due to stuck port data_in              ;
+; IF_ID:Fetch_Decode|Read_Register_1_o[4]                                    ; Stuck at GND due to stuck port data_in              ;
+; IF_ID:Fetch_Decode|Read_Data_o[28,29,31]                                   ; Stuck at GND due to stuck port data_in              ;
+; IF_ID:Fetch_Decode|Read_Register_1_o[0..2]                                 ; Lost fanout                                         ;
+; ID_EX:Decode_Excecute|Immediate_o[7..10,12..21]                            ; Stuck at GND due to stuck port data_in              ;
+; IF_ID:Fetch_Decode|OP_o[1]                                                 ; Merged with IF_ID:Fetch_Decode|OP_o[0]              ;
+; IF_ID:Fetch_Decode|Read_Data_o[9]                                          ; Merged with IF_ID:Fetch_Decode|OP_o[0]              ;
+; IF_ID:Fetch_Decode|OP_o[6]                                                 ; Merged with IF_ID:Fetch_Decode|OP_o[5]              ;
+; IF_ID:Fetch_Decode|Read_Data_o[10]                                         ; Merged with IF_ID:Fetch_Decode|OP_o[5]              ;
+; ID_EX:Decode_Excecute|ALU_Op_o[0]                                          ; Stuck at VCC due to stuck port data_in              ;
+; ID_EX:Decode_Excecute|Branch_o                                             ; Merged with ID_EX:Decode_Excecute|ALU_Op_o[2]       ;
+; PC_Register:PROGRAM_COUNTER|PC_Value[11..31]                               ; Lost fanout                                         ;
+; ID_EX:Decode_Excecute|Immediate_o[3]                                       ; Merged with ID_EX:Decode_Excecute|ALU_Src_o         ;
+; Total Number of Removed Registers = 1206                                   ;                                                     ;
++----------------------------------------------------------------------------+-----------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                ;
++-----------------------------------------------------------------------+--------------------------------+-----------------------------------------------------------------------------------+
+; Register name                                                         ; Reason for Removal             ; Registers Removed due to This Register                                            ;
++-----------------------------------------------------------------------+--------------------------------+-----------------------------------------------------------------------------------+
+; IF_ID:Fetch_Decode|OP_o[2]                                            ; Stuck at GND                   ; ID_EX:Decode_Excecute|Immediate_o[7], ID_EX:Decode_Excecute|Immediate_o[8],       ;
+;                                                                       ; due to stuck port data_in      ; ID_EX:Decode_Excecute|Immediate_o[9], ID_EX:Decode_Excecute|Immediate_o[15],      ;
+;                                                                       ;                                ; ID_EX:Decode_Excecute|Immediate_o[16], ID_EX:Decode_Excecute|Immediate_o[17],     ;
+;                                                                       ;                                ; ID_EX:Decode_Excecute|Immediate_o[19], ID_EX:Decode_Excecute|Immediate_o[20],     ;
+;                                                                       ;                                ; ID_EX:Decode_Excecute|Immediate_o[21], ID_EX:Decode_Excecute|ALU_Op_o[0]          ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[0]   ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[0], ID_EX:Decode_Excecute|Mem_Read_o,         ;
+;                                                                       ; due to stuck port clock_enable ; ID_EX:Decode_Excecute|Mem_to_Reg_o, ID_EX:Decode_Excecute|Read_Data_1_o[0],       ;
+;                                                                       ;                                ; IF_ID:Fetch_Decode|Read_Register_1_o[0], IF_ID:Fetch_Decode|Read_Register_1_o[1], ;
+;                                                                       ;                                ; IF_ID:Fetch_Decode|Read_Register_1_o[2]                                           ;
+; IF_ID:Fetch_Decode|Read_Data_o[30]                                    ; Stuck at GND                   ; ID_EX:Decode_Excecute|Immediate_o[10], ID_EX:Decode_Excecute|Immediate_o[18]      ;
+;                                                                       ; due to stuck port data_in      ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[30]  ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[30]                                           ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[29]  ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[29]                                           ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[28]  ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[28]                                           ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[27]  ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[27]                                           ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[26]  ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[26]                                           ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[25]  ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[25]                                           ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[24]  ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[24]                                           ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[23]  ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[23]                                           ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[22]  ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[22]                                           ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[21]  ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[21]                                           ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[20]  ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[20]                                           ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[19]  ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[19]                                           ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[18]  ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[18]                                           ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[17]  ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[17]                                           ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[16]  ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[16]                                           ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[15]  ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[15]                                           ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[14]  ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[14]                                           ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[12]  ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[12]                                           ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[11]  ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[11]                                           ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[10]  ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[10]                                           ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[9]   ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[9]                                            ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[8]   ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[8]                                            ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[7]   ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[7]                                            ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[6]   ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[6]                                            ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[5]   ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[5]                                            ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[4]   ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[4]                                            ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[3]   ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[3]                                            ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[2]   ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[2]                                            ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[1]   ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[1]                                            ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_zero|DataOutput[0] ; Stuck at GND                   ; ID_EX:Decode_Excecute|Read_Data_2_o[0]                                            ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[31]  ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[31]                                           ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
+; IF_ID:Fetch_Decode|Read_Data_o[14]                                    ; Stuck at GND                   ; ID_EX:Decode_Excecute|Immediate_o[14]                                             ;
+;                                                                       ; due to stuck port data_in      ;                                                                                   ;
+; IF_ID:Fetch_Decode|Read_Data_o[13]                                    ; Stuck at GND                   ; ID_EX:Decode_Excecute|Immediate_o[13]                                             ;
+;                                                                       ; due to stuck port data_in      ;                                                                                   ;
+; IF_ID:Fetch_Decode|Read_Data_o[12]                                    ; Stuck at GND                   ; ID_EX:Decode_Excecute|Immediate_o[12]                                             ;
+;                                                                       ; due to stuck port data_in      ;                                                                                   ;
+; Register_File:REGISTER_FILE_UNIT|Register:Register_t6|DataOutput[13]  ; Stuck at GND                   ; EX_MEM:Excecute_Memory|ALU_Result_o[13]                                           ;
+;                                                                       ; due to stuck port clock_enable ;                                                                                   ;
++-----------------------------------------------------------------------+--------------------------------+-----------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 34    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 9     ;
+; Number of registers using Asynchronous Clear ; 11    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 2     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |RISC_V_Single_Cycle|Immediate_Unit:IMM_UNIT|Immediate_o[6] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |RISC_V_Single_Cycle|ALU:ALU_UNIT|Mux14                     ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |RISC_V_Single_Cycle|Immediate_Unit:IMM_UNIT|Immediate_o[1] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 21 LEs               ; 7 LEs                  ; No         ; |RISC_V_Single_Cycle|ALU:ALU_UNIT|Mux22                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |RISC_V_Single_Cycle ;
++----------------------+-------+------------------------------------------------------+
+; Parameter Name       ; Value ; Type                                                 ;
++----------------------+-------+------------------------------------------------------+
+; PROGRAM_MEMORY_DEPTH ; 512   ; Signed Integer                                       ;
+; DATA_MEMORY_DEPTH    ; 128   ; Signed Integer                                       ;
++----------------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PC_Register:PROGRAM_COUNTER ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; N              ; 32    ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Program_Memory:PROGRAM_MEMORY ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; MEMORY_DEPTH   ; 512   ; Signed Integer                                    ;
+; DATA_WIDTH     ; 32    ; Signed Integer                                    ;
++----------------+-------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Adder_32_Bits:PC_PLUS_4 ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; NBits          ; 32    ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: IF_ID:Fetch_Decode ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; DATA_WIDTH     ; 32    ; Signed Integer                         ;
+; MEMORY_DEPTH   ; 256   ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_zero ;
++----------------+-------+-----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                        ;
++----------------+-------+-----------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                              ;
++----------------+-------+-----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_ra ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_sp ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_gp ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_tp ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_t0 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_t1 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_t2 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s0_fp ;
++----------------+-------+------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                         ;
++----------------+-------+------------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                               ;
++----------------+-------+------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s1 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_a0 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_a1 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_a2 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_a3 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_a4 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_a5 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_a6 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_a7 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s2 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s3 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s4 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s5 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s6 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s7 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s8 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s9 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s10 ;
++----------------+-------+----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                       ;
++----------------+-------+----------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                             ;
++----------------+-------+----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_s11 ;
++----------------+-------+----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                       ;
++----------------+-------+----------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                             ;
++----------------+-------+----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_t3 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_t4 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_t5 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|Register:Register_t6 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|MUXRegisterFile:MUXRegister1 ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                              ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_File:REGISTER_FILE_UNIT|MUXRegisterFile:MUXRegister2 ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                              ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ID_EX:Decode_Excecute ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; DATA_WIDTH     ; 32    ; Signed Integer                            ;
+; MEMORY_DEPTH   ; 256   ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Multiplexer_2_to_1:MUX_DATA_OR_IMM_FOR_ALU ;
++----------------+-------+----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                           ;
++----------------+-------+----------------------------------------------------------------+
+; NBits          ; 32    ; Signed Integer                                                 ;
++----------------+-------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: EX_MEM:Excecute_Memory ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; DATA_WIDTH     ; 32    ; Signed Integer                             ;
+; MEMORY_DEPTH   ; 256   ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Data_Memory:DATA_MEMORY_UNIT ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; DATA_WIDTH     ; 32    ; Signed Integer                                   ;
+; MEMORY_DEPTH   ; 256   ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Multiplexer_2_to_1:MUL_UNIT ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; NBits          ; 32    ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Multiplexer_2_to_1:BRANCH_MUL_UNIT ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; NBits          ; 32    ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Multiplexer_2_to_1:JAL_MUX ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; NBits          ; 32    ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Conditional_Adder:PC_JAL_ADDER ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; NBits          ; 32    ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Conditional_Adder:PC_JALR_ADDER ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; NBits          ; 32    ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Conditional_Adder:PC_JALR_PLUS_4 ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; NBits          ; 32    ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Multiplexer_2_to_1:JAL_JALR_MUX ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; NBits          ; 32    ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Port Connectivity Checks: "Conditional_Adder:PC_JALR_PLUS_4" ;
++--------------+-------+----------+----------------------------+
+; Port         ; Type  ; Severity ; Details                    ;
++--------------+-------+----------+----------------------------+
+; Data0[31..4] ; Input ; Info     ; Stuck at GND               ;
+; Data0[2..0]  ; Input ; Info     ; Stuck at GND               ;
+; Data0[3]     ; Input ; Info     ; Stuck at VCC               ;
++--------------+-------+----------+----------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Multiplexer_2_to_1:JAL_MUX"                                                                 ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Mux_Output_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "EX_MEM:Excecute_Memory"                                                                        ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; ALU_Operation_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ID_EX:Decode_Excecute"                                                                     ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Reg_Write_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Register_File:REGISTER_FILE_UNIT|Register:Register_zero" ;
++-----------+-------+----------+------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                              ;
++-----------+-------+----------+------------------------------------------------------+
+; DataInput ; Input ; Info     ; Stuck at GND                                         ;
++-----------+-------+----------+------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "IF_ID:Fetch_Decode"                                                                 ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; PC_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "Adder_32_Bits:PC_PLUS_4" ;
++--------------+-------+----------+-------------------+
+; Port         ; Type  ; Severity ; Details           ;
++--------------+-------+----------+-------------------+
+; Data1[31..3] ; Input ; Info     ; Stuck at GND      ;
+; Data1[1..0]  ; Input ; Info     ; Stuck at GND      ;
+; Data1[2]     ; Input ; Info     ; Stuck at VCC      ;
++--------------+-------+----------+-------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 34                          ;
+; cycloneiii_ff         ; 34                          ;
+;     CLR SLD           ; 9                           ;
+;     ENA CLR           ; 2                           ;
+;     plain             ; 23                          ;
+; cycloneiii_lcell_comb ; 69                          ;
+;     arith             ; 18                          ;
+;         2 data inputs ; 11                          ;
+;         3 data inputs ; 7                           ;
+;     normal            ; 51                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 15                          ;
+;         4 data inputs ; 28                          ;
+;                       ;                             ;
+; Max LUT depth         ; 3.90                        ;
+; Average LUT depth     ; 2.38                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+    Info: Processing started: Tue May  3 17:05:45 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RISC_V_Single_Cycle -c RISC_V_Single_Cycle
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/risc_v_pipeline/risc_v_pipeline-main/risc_v_single_cycle/src/risc_v_single_cycle_tb.v
+    Info (12023): Found entity 1: RISC_V_Single_Cycle_TB File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle_TB.v Line: 15
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/risc_v_pipeline/risc_v_pipeline-main/risc_v_single_cycle/src/risc_v_single_cycle.v
+    Info (12023): Found entity 1: RISC_V_Single_Cycle File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 20
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/risc_v_pipeline/risc_v_pipeline-main/risc_v_single_cycle/src/register_file.v
+    Info (12023): Found entity 1: Register_File File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Register_File.v Line: 15
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/risc_v_pipeline/risc_v_pipeline-main/risc_v_single_cycle/src/register.v
+    Info (12023): Found entity 1: Register File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Register.v Line: 12
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/risc_v_pipeline/risc_v_pipeline-main/risc_v_single_cycle/src/program_memory.v
+    Info (12023): Found entity 1: Program_Memory File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Program_Memory.v Line: 15
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/risc_v_pipeline/risc_v_pipeline-main/risc_v_single_cycle/src/pc_register.v
+    Info (12023): Found entity 1: PC_Register File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/PC_Register.v Line: 15
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/risc_v_pipeline/risc_v_pipeline-main/risc_v_single_cycle/src/mux_register_file.v
+    Info (12023): Found entity 1: MUXRegisterFile File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/MUX_Register_File.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/risc_v_pipeline/risc_v_pipeline-main/risc_v_single_cycle/src/multiplexer_2_to_1.v
+    Info (12023): Found entity 1: Multiplexer_2_to_1 File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Multiplexer_2_to_1.v Line: 13
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/risc_v_pipeline/risc_v_pipeline-main/risc_v_single_cycle/src/immediate_unit.v
+    Info (12023): Found entity 1: Immediate_Unit File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Immediate_Unit.v Line: 14
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/risc_v_pipeline/risc_v_pipeline-main/risc_v_single_cycle/src/decoder_register_file.v
+    Info (12023): Found entity 1: Decoder_Register_File File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Decoder_Register_File.v Line: 12
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/risc_v_pipeline/risc_v_pipeline-main/risc_v_single_cycle/src/data_memory.v
+    Info (12023): Found entity 1: Data_Memory File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Data_Memory.v Line: 13
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/risc_v_pipeline/risc_v_pipeline-main/risc_v_single_cycle/src/control.v
+    Info (12023): Found entity 1: Control File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Control.v Line: 14
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/risc_v_pipeline/risc_v_pipeline-main/risc_v_single_cycle/src/alu_control.v
+    Info (12023): Found entity 1: ALU_Control File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ALU_Control.v Line: 15
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/risc_v_pipeline/risc_v_pipeline-main/risc_v_single_cycle/src/alu.v
+    Info (12023): Found entity 1: ALU File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ALU.v Line: 17
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/risc_v_pipeline/risc_v_pipeline-main/risc_v_single_cycle/src/adder_32_bits.v
+    Info (12023): Found entity 1: Adder_32_Bits File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Adder_32_Bits.v Line: 13
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/risc_v_pipeline/risc_v_pipeline-main/risc_v_single_cycle/src/conditional_adder.v
+    Info (12023): Found entity 1: Conditional_Adder File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Conditional_Adder.v Line: 13
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/risc_v_pipeline/risc_v_pipeline-main/risc_v_single_cycle/src/ex_mem.v
+    Info (12023): Found entity 1: EX_MEM File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/EX_MEM.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/risc_v_pipeline/risc_v_pipeline-main/risc_v_single_cycle/src/id_ex.v
+    Info (12023): Found entity 1: ID_EX File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ID_EX.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /projects/risc_v_pipeline/risc_v_pipeline-main/risc_v_single_cycle/src/if_id.v
+    Info (12023): Found entity 1: IF_ID File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/IF_ID.v Line: 1
+Info (12127): Elaborating entity "RISC_V_Single_Cycle" for the top level hierarchy
+Info (12128): Elaborating entity "PC_Register" for hierarchy "PC_Register:PROGRAM_COUNTER" File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 120
+Info (12128): Elaborating entity "Program_Memory" for hierarchy "Program_Memory:PROGRAM_MEMORY" File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 130
+Warning (10850): Verilog HDL warning at Program_Memory.v(34): number of words (9) in memory file does not match the number of elements in the address range [0:511] File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Program_Memory.v Line: 34
+Warning (10030): Net "rom.data_a" at Program_Memory.v(30) has no driver or initial value, using a default initial value '0' File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Program_Memory.v Line: 30
+Warning (10030): Net "rom.waddr_a" at Program_Memory.v(30) has no driver or initial value, using a default initial value '0' File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Program_Memory.v Line: 30
+Warning (10030): Net "rom.we_a" at Program_Memory.v(30) has no driver or initial value, using a default initial value '0' File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Program_Memory.v Line: 30
+Info (12128): Elaborating entity "Adder_32_Bits" for hierarchy "Adder_32_Bits:PC_PLUS_4" File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 140
+Info (12128): Elaborating entity "IF_ID" for hierarchy "IF_ID:Fetch_Decode" File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 162
+Info (12128): Elaborating entity "Control" for hierarchy "Control:CONTROL_UNIT" File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 179
+Info (12128): Elaborating entity "Register_File" for hierarchy "Register_File:REGISTER_FILE_UNIT" File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 195
+Info (12128): Elaborating entity "Decoder_Register_File" for hierarchy "Register_File:REGISTER_FILE_UNIT|Decoder_Register_File:DECODER_REG_FILE" File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Register_File.v Line: 43
+Info (12128): Elaborating entity "Register" for hierarchy "Register_File:REGISTER_FILE_UNIT|Register:Register_zero" File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Register_File.v Line: 59
+Info (12128): Elaborating entity "MUXRegisterFile" for hierarchy "Register_File:REGISTER_FILE_UNIT|MUXRegisterFile:MUXRegister1" File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Register_File.v Line: 481
+Info (12128): Elaborating entity "Immediate_Unit" for hierarchy "Immediate_Unit:IMM_UNIT" File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 204
+Info (12128): Elaborating entity "ID_EX" for hierarchy "ID_EX:Decode_Excecute" File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 243
+Info (12128): Elaborating entity "Multiplexer_2_to_1" for hierarchy "Multiplexer_2_to_1:MUX_DATA_OR_IMM_FOR_ALU" File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 259
+Info (12128): Elaborating entity "ALU_Control" for hierarchy "ALU_Control:ALU_CONTROL_UNIT" File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 271
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU_UNIT" File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 284
+Warning (10764): Verilog HDL warning at ALU.v(49): converting signed shift amount to unsigned File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ALU.v Line: 49
+Warning (10764): Verilog HDL warning at ALU.v(50): converting signed shift amount to unsigned File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ALU.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at ALU.v(39): inferring latch(es) for variable "Zero_o", which holds its previous value in one or more paths through the always construct File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ALU.v Line: 39
+Info (10041): Inferred latch for "Zero_o" at ALU.v(39) File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ALU.v Line: 39
+Info (12128): Elaborating entity "EX_MEM" for hierarchy "EX_MEM:Excecute_Memory" File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 304
+Info (12128): Elaborating entity "Data_Memory" for hierarchy "Data_Memory:DATA_MEMORY_UNIT" File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 319
+Info (12128): Elaborating entity "Multiplexer_2_to_1" for hierarchy "Multiplexer_2_to_1:MUL_UNIT" File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 330
+Info (12128): Elaborating entity "Conditional_Adder" for hierarchy "Conditional_Adder:PC_JAL_ADDER" File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 359
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/proj_quartus/db/RISC_V_Single_Cycle.ram0_Program_Memory_39ce540.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276013): RAM logic "Program_Memory:PROGRAM_MEMORY|rom" is uninferred because MIF is not supported for the selected family File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Program_Memory.v Line: 30
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/proj_quartus/db/RISC_V_Single_Cycle.ram0_Program_Memory_39ce540.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (13012): Latch ALU:ALU_UNIT|Zero_o has unsafe behavior File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ALU.v Line: 22
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ID_EX:Decode_Excecute|ALU_Op_o[1] File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ID_EX.v Line: 31
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "alu_result_o[3]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[7]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[8]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[9]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[10]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[12]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[13]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[14]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[15]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[16]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[17]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[18]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[19]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[20]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[21]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[22]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[23]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[24]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[25]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[26]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[27]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[28]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[29]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[30]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+    Warning (13410): Pin "alu_result_o[31]" is stuck at GND File: C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v Line: 32
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 64 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 110 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 76 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 38 warnings
+    Info: Peak virtual memory: 4785 megabytes
+    Info: Processing ended: Tue May  3 17:05:55 2022
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:24
+
+

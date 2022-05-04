@@ -1,0 +1,467 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/PROJECTS/RISC_V_Single_Cycle/proj_modelsim
+vAdder_32_Bits
+Z0 !s110 1651617081
+!i10b 1
+!s100 ]]1J@==K`8kPSg5PUDi8W3
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I6XzzN0A@;1G=EAhMjWEoB0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dC:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/proj_modelsim
+Z4 w1651612093
+8C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Adder_32_Bits.v
+FC:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Adder_32_Bits.v
+!i122 111
+L0 13 16
+Z5 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z6 !s108 1651617081.000000
+!s107 C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Adder_32_Bits.v|
+!s90 -reportprogress|300|-work|work6|-stats=none|C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Adder_32_Bits.v|
+!i113 1
+Z7 o-work work6
+Z8 tCvgOpt 0
+n@adder_32_@bits
+vALU
+R0
+!i10b 1
+!s100 QLcz7R;Yn<9X^[N?^>Xhn2
+R1
+ISizWIec<b?269>^YCIFIU3
+R2
+R3
+R4
+8C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ALU.v
+FC:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ALU.v
+!i122 112
+L0 17 49
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ALU.v|
+!s90 -reportprogress|300|-work|work6|-stats=none|C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ALU.v|
+!i113 1
+R7
+R8
+n@a@l@u
+vALU_Control
+Z9 !s110 1651617082
+!i10b 1
+!s100 3OgJelKkb3?NDV1ST5>?L3
+R1
+IH_fBCdoY3lV:NjHTFT01;1
+R2
+R3
+R4
+8C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ALU_Control.v
+FC:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ALU_Control.v
+!i122 113
+L0 15 71
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ALU_Control.v|
+!s90 -reportprogress|300|-work|work6|-stats=none|C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ALU_Control.v|
+!i113 1
+R7
+R8
+n@a@l@u_@control
+vConditional_Adder
+R9
+!i10b 1
+!s100 SeGe^836@iL0b5EWJR>Rg1
+R1
+IJW03VEdcYPgFWQ09GXo4M2
+R2
+R3
+R4
+8C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Conditional_Adder.v
+FC:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Conditional_Adder.v
+!i122 114
+L0 13 19
+R5
+r1
+!s85 0
+31
+Z10 !s108 1651617082.000000
+!s107 C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Conditional_Adder.v|
+!s90 -reportprogress|300|-work|work6|-stats=none|C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Conditional_Adder.v|
+!i113 1
+R7
+R8
+n@conditional_@adder
+vControl
+R9
+!i10b 1
+!s100 27K`;0NH9X[JZ_=j4R3Wz1
+R1
+IEDNoGj<8d42C9`zKWm6Ue1
+R2
+R3
+R4
+8C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Control.v
+FC:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Control.v
+!i122 115
+L0 14 56
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Control.v|
+!s90 -reportprogress|300|-work|work6|-stats=none|C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Control.v|
+!i113 1
+R7
+R8
+n@control
+vData_Memory
+R9
+!i10b 1
+!s100 TSE[m;e7jhzD4TD2OPLbA3
+R1
+IU4R?>RP@V3ZDHPf>^CCgH1
+R2
+R3
+R4
+8C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Data_Memory.v
+FC:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Data_Memory.v
+!i122 116
+L0 13 35
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Data_Memory.v|
+!s90 -reportprogress|300|-work|work6|-stats=none|C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Data_Memory.v|
+!i113 1
+R7
+R8
+n@data_@memory
+vDecoder_Register_File
+R9
+!i10b 1
+!s100 McjJ;eT`CL^gKzSaHBkF33
+R1
+Ii^Y@UR6:behXI33K5hNUm3
+R2
+R3
+Z11 w1651612094
+8C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Decoder_Register_File.v
+FC:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Decoder_Register_File.v
+!i122 117
+L0 12 50
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Decoder_Register_File.v|
+!s90 -reportprogress|300|-work|work6|-stats=none|C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Decoder_Register_File.v|
+!i113 1
+R7
+R8
+n@decoder_@register_@file
+vEX_MEM
+R9
+!i10b 1
+!s100 IUWHADWlNVXf@@<SC2YX_2
+R1
+IS`8obJ=M?M<AJ=[HaONoH0
+R2
+R3
+w1651612582
+8C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/EX_MEM.v
+FC:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/EX_MEM.v
+!i122 118
+L0 1 25
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/EX_MEM.v|
+!s90 -reportprogress|300|-work|work6|-stats=none|C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/EX_MEM.v|
+!i113 1
+R7
+R8
+n@e@x_@m@e@m
+vID_EX
+R9
+!i10b 1
+!s100 mL]:@RTk2T`ZWM]`8ZFA`0
+R1
+I[PP]5Y3jYd19[[ok3WHFd2
+R2
+R3
+w1651612669
+8C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ID_EX.v
+FC:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ID_EX.v
+!i122 119
+L0 1 46
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ID_EX.v|
+!s90 -reportprogress|300|-work|work6|-stats=none|C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/ID_EX.v|
+!i113 1
+R7
+R8
+n@i@d_@e@x
+vIF_ID
+R9
+!i10b 1
+!s100 G>`]6g<Q0H`]k2<K?L9oa2
+R1
+I`UI7z2Qkf]J_b[O2e2Ti<3
+R2
+R3
+w1651615382
+8C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/IF_ID.v
+FC:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/IF_ID.v
+!i122 120
+L0 1 29
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/IF_ID.v|
+!s90 -reportprogress|300|-work|work6|-stats=none|C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/IF_ID.v|
+!i113 1
+R7
+R8
+n@i@f_@i@d
+vImmediate_Unit
+R9
+!i10b 1
+!s100 _4@HmBQlEnin9HT2F;jLT2
+R1
+I2egL>d0ND?^JXUgHf9W^d1
+R2
+R3
+R11
+8C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Immediate_Unit.v
+FC:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Immediate_Unit.v
+!i122 121
+L0 14 33
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Immediate_Unit.v|
+!s90 -reportprogress|300|-work|work6|-stats=none|C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Immediate_Unit.v|
+!i113 1
+R7
+R8
+n@immediate_@unit
+vMultiplexer_2_to_1
+Z12 !s110 1651617083
+!i10b 1
+!s100 ;:eeJ;AHY7A^Ld9RHQfQ[0
+R1
+IW;Le3Pec8cl4DUL@dXEYh3
+R2
+R3
+R11
+8C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Multiplexer_2_to_1.v
+FC:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Multiplexer_2_to_1.v
+!i122 122
+L0 13 21
+R5
+r1
+!s85 0
+31
+Z13 !s108 1651617083.000000
+!s107 C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Multiplexer_2_to_1.v|
+!s90 -reportprogress|300|-work|work6|-stats=none|C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Multiplexer_2_to_1.v|
+!i113 1
+R7
+R8
+n@multiplexer_2_to_1
+vMUXRegisterFile
+R12
+!i10b 1
+!s100 nBWFB0n:b]lZh_XigEU=]1
+R1
+I]8W`3Dl:^;LzGl[K?::461
+R2
+R3
+R11
+8C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/MUX_Register_File.v
+FC:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/MUX_Register_File.v
+!i122 123
+L0 2 82
+R5
+r1
+!s85 0
+31
+R13
+!s107 C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/MUX_Register_File.v|
+!s90 -reportprogress|300|-work|work6|-stats=none|C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/MUX_Register_File.v|
+!i113 1
+R7
+R8
+n@m@u@x@register@file
+vPC_Register
+R12
+!i10b 1
+!s100 YPRg_iMMTITG1KjIDJWV61
+R1
+Iz>37NFb]@=<K[^BJI^[Y10
+R2
+R3
+R11
+8C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/PC_Register.v
+FC:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/PC_Register.v
+!i122 124
+L0 15 21
+R5
+r1
+!s85 0
+31
+R13
+!s107 C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/PC_Register.v|
+!s90 -reportprogress|300|-work|work6|-stats=none|C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/PC_Register.v|
+!i113 1
+R7
+R8
+n@p@c_@register
+vProgram_Memory
+R12
+!i10b 1
+!s100 2UmQ=IVR`PP4HDZz:e`Tn0
+R1
+I?G7:KEOmO4@<Dm?^UhlLO1
+R2
+R3
+R11
+8C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Program_Memory.v
+FC:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Program_Memory.v
+!i122 125
+L0 15 28
+R5
+r1
+!s85 0
+31
+R13
+!s107 C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Program_Memory.v|
+!s90 -reportprogress|300|-work|work6|-stats=none|C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Program_Memory.v|
+!i113 1
+R7
+R8
+n@program_@memory
+vRegister
+R12
+!i10b 1
+!s100 c`llfJWOXjQN;MYLz^cz:2
+R1
+Igg3EUL9>^T<z?=6zLoBmz0
+R2
+R3
+R11
+8C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Register.v
+FC:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Register.v
+!i122 126
+L0 12 23
+R5
+r1
+!s85 0
+31
+R13
+!s107 C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Register.v|
+!s90 -reportprogress|300|-work|work6|-stats=none|C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Register.v|
+!i113 1
+R7
+R8
+n@register
+vRegister_File
+R12
+!i10b 1
+!s100 R[Rb@T=>j2@IjZam7^kDC0
+R1
+IEDL>oMfJM6@zL03ZTiIoS0
+R2
+R3
+R11
+8C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Register_File.v
+FC:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Register_File.v
+!i122 127
+L0 15 513
+R5
+r1
+!s85 0
+31
+R13
+!s107 C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Register_File.v|
+!s90 -reportprogress|300|-work|work6|-stats=none|C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/Register_File.v|
+!i113 1
+R7
+R8
+n@register_@file
+vRISC_V_Single_Cycle
+R12
+!i10b 1
+!s100 fT3jkTPXSJ0FNToGeLMGi3
+R1
+ILbPM_NTcLRISh`Q5WgZVK0
+R2
+R3
+w1651615527
+8C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v
+FC:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v
+!i122 128
+L0 20 368
+R5
+r1
+!s85 0
+31
+R13
+!s107 C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v|
+!s90 -reportprogress|300|-work|work6|-stats=none|C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle.v|
+!i113 1
+R7
+R8
+n@r@i@s@c_@v_@single_@cycle
+vRISC_V_Single_Cycle_TB
+R12
+!i10b 1
+!s100 1^bOZhYVdM<>0g4;c;BaI0
+R1
+IF4jWg_USK7L;gckk=]>=`3
+R2
+R3
+R11
+8C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle_TB.v
+FC:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle_TB.v
+!i122 129
+L0 15 26
+R5
+r1
+!s85 0
+31
+R13
+!s107 C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle_TB.v|
+!s90 -reportprogress|300|-work|work6|-stats=none|C:/PROJECTS/RISC_V_PIPELINE/RISC_V_PIPELINE-main/RISC_V_Single_Cycle/src/RISC_V_Single_Cycle_TB.v|
+!i113 1
+R7
+R8
+n@r@i@s@c_@v_@single_@cycle_@t@b
